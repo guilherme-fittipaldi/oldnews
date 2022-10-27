@@ -1,31 +1,40 @@
 import React from "react";
-import { Box } from "@mui/system";
-import { Chip, Typography } from "@mui/material";
 
-type MainArticleProps = {
+import { Box, Chip, Grid, Typography } from "@mui/material";
+
+type VerticalArticleProps = {
   title: string;
   year: string;
   img: string;
+  index: number;
 };
 
-const MainArticle = ({ title, year, img }: MainArticleProps) => {
+const VerticalArticle = ({ title, year, img, index }: VerticalArticleProps) => {
   return (
-    <Box
+    <Grid
+      item
+      xs={3}
       position="relative"
-      width="88vw"
-      height="60vh"
+      height="55vh"
       display="flex"
       padding="2vw"
       sx={{
-        borderRadius: "6px",
+        borderRadius:
+          index === 0
+            ? "6px 0px 0px 6px"
+            : index === 3
+            ? "0px 6px 6px 0px"
+            : "0px 0px 0px 0px",
         background: `linear-gradient(360deg, rgba(22, 22, 22, 0.898) 30%, rgba(49, 48, 48, 0) 98.09%), url(
           ${img}
         ) no-repeat`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
         "&:hover": {
           transition: "opacity 0.2s ease-in-out 0s",
           transform: "scale(1.02)",
         },
+        objectFit: "cover",
       }}
     >
       <Box position="absolute" bottom="35px">
@@ -33,12 +42,12 @@ const MainArticle = ({ title, year, img }: MainArticleProps) => {
           label={year}
           sx={{ backgroundColor: "#fdd32d", fontWeight: "bold" }}
         />
-        <Typography variant="h4" mt={2} sx={{ color: "white" }}>
+        <Typography variant="h6" mt={2} sx={{ color: "white" }}>
           {title}
         </Typography>
       </Box>
-    </Box>
+    </Grid>
   );
 };
 
-export default MainArticle;
+export default VerticalArticle;
