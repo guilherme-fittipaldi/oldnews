@@ -1,8 +1,6 @@
-import React from "react";
-
 import { Grid } from "@mui/material";
-import MainArticle from "../MainArticle/MainArticle";
-import VerticalArticle from "../VerticalArticles/VerticalArticle";
+import MainArticle from "./components/MainArticle/MainArticle";
+import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
 
 const Articles = () => {
   const verticalArticles = [
@@ -51,14 +49,15 @@ const Articles = () => {
         alignItems="center"
         mt={2}
         mb={4}
-        width="88vw"
+        width="84vw"
+        maxWidth="1200px"
       >
-        {verticalArticles.map((a, index) => {
+        {verticalArticles.map((article, index) => {
           return (
             <VerticalArticle
-              title={a.title}
-              year={a.year}
-              img={a.img}
+              title={article.title}
+              year={article.year}
+              img={article.img}
               index={index}
             />
           );
