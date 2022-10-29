@@ -25,42 +25,46 @@ const GridArticles = () => {
 			justifyContent="center"
 			alignItems="center"
 		>
-			<Grid2 width="84vw">
-				<Typography variant="h3" component="h1">
-					Latests
-				</Typography>
-			</Grid2>
 			<Grid2
-				container
 				width="84vw"
-				spacing={2}
+				maxWidth="1200px"
 			>
-				{
-					news.map(item => {
-						return (
-							<Grid2 xs={6}>
-								<Card>
-									<CardActionArea>
-										<CardMedia
-											component="img"
-											height="200"
-											image={item.image}
-											alt={item.title}
-											/>
-										<CardContent>
-											<Typography gutterBottom variant="h5" component="div">
-												{ item.title }
-											</Typography>
-											<Typography variant="body2" color="text.secondary">
-												{ item.description }
-											</Typography>
-										</CardContent>
-									</CardActionArea>
-								</Card>
-							</Grid2>
-						)
-					})
-				}
+				<Grid2>
+					<Typography variant="h3" component="h1">
+						Latests
+					</Typography>
+				</Grid2>
+				<Grid2
+					container
+					spacing={2}
+				>
+					{
+						news.map(item => {
+							return (
+								<Grid2 xs={6}>
+									<Card>
+										<CardActionArea>
+											<CardMedia
+												component="img"
+												height="200"
+												image={item.image}
+												alt={item.title}
+												/>
+											<CardContent>
+												<Typography gutterBottom variant="h5" component="div">
+													{ item.title }
+												</Typography>
+												<Typography variant="body2" color="text.secondary">
+													{ item.description }
+												</Typography>
+											</CardContent>
+										</CardActionArea>
+									</Card>
+								</Grid2>
+							)
+						})
+					}
+				</Grid2>
 			</Grid2>
 		</Grid2>
 	)
