@@ -12,15 +12,7 @@ const theme = createTheme({
       "Arial",
       "sans-serif",
     ].join(","),
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-weight: bold;
-        }
-      `,
-    },
+    h4: { fontWeight: "bold" },
   },
 });
 
