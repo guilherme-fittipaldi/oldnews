@@ -1,10 +1,11 @@
-import React from "react";
-
-import { Grid } from "@mui/material";
-import MainArticle from "../MainArticle/MainArticle";
-import VerticalArticle from "../VerticalArticles/VerticalArticle";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import MainArticle from "./components/MainArticle/MainArticle";
+import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
 
 const Articles = () => {
+  const theme = useTheme();
+  const showText = useMediaQuery(theme.breakpoints.up("sm"));
+
   const verticalArticles = [
     {
       year: "2017",
@@ -37,7 +38,7 @@ const Articles = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      mt={4}
+      mt={{ sm: 4 }}
     >
       <MainArticle
         year="1978"
@@ -51,18 +52,20 @@ const Articles = () => {
         alignItems="center"
         mt={2}
         mb={4}
-        width="88vw"
+        width="84vw"
+        maxWidth="1200px"
       >
-        {verticalArticles.map((a, index) => {
-          return (
-            <VerticalArticle
-              title={a.title}
-              year={a.year}
-              img={a.img}
-              index={index}
-            />
-          );
-        })}
+        {showText &&
+          verticalArticles.map((article, index) => {
+            return (
+              <VerticalArticle
+                title={article.title}
+                year={article.year}
+                img={article.img}
+                index={index}
+              />
+            );
+          })}
       </Grid>
     </Grid>
   );
