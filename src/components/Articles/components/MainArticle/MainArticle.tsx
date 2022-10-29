@@ -10,21 +10,22 @@ const MainArticle = ({ title, year, img }: MainArticleProps) => {
   return (
     <Box
       position="relative"
-      width="84vw"
+      width={{ xs: "100vw", sm: "84vw" }}
       maxWidth="1200px"
       height="60vh"
       display="flex"
-      sx={{ overflow: "hidden", borderRadius: "6px" }}
+      borderRadius={{ xs: "0px", sm: "6px" }}
+      sx={{ overflow: "hidden" }}
     >
       <Box
         position="relative"
-        width="84vw"
+        width={{ xs: "100vw", sm: "84vw" }}
         maxWidth="1200px"
         height="60vh"
         display="flex"
         padding="2vw"
+        borderRadius={{ xs: "0px", sm: "6px" }}
         sx={{
-          borderRadius: "6px",
           background: `linear-gradient(360deg, rgba(22, 22, 22, 0.898) 30%, rgba(49, 48, 48, 0) 98.09%), url(
           ${img}
         ) no-repeat`,

@@ -35,7 +35,7 @@ const Articles = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      mt={4}
+      mt={{ sm: 4 }}
     >
       <MainArticle
         year="1978"
