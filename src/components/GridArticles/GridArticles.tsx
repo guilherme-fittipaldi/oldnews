@@ -49,7 +49,19 @@ const GridArticles = () => {
 												height="200"
 												image={item.image}
 												alt={item.title}
-												/>
+                        sx={{
+                          borderRadius: "6px",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          transition:
+                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
+                          "&:hover": {
+                            transform: "scale(1.02)",
+                          },
+                          objectFit: "cover",
+                        }}
+											/>
+                    </CardActionArea>
 											<CardContent sx={{ px: 0 }}>
                         <Chip
                           label={item.year}
@@ -59,7 +71,6 @@ const GridArticles = () => {
 													{ item.title }
 												</Typography>
 											</CardContent>
-										</CardActionArea>
 									</Card>
 								</Grid2>
 							)
@@ -76,24 +87,25 @@ const GridArticles = () => {
             news.map(item => {
               return (
                 <Grid2 xs={6}>
-                  <Card sx={{ boxShadow: 0, backgroundColor: "transparent" }}>
-                    <CardActionArea sx={{ display: 'flex', alignItems: "start" }}>
+                  <Card sx={{ display: 'flex', alignItems: "start", boxShadow: 0, backgroundColor: "transparent" }}>
+                    <CardActionArea sx={{width: "auto"}}>
                       <CardMedia
                         component="img"
+                        height="100"
                         sx={{ width: 150, borderRadius: "6px" }}
                         image={item.image}
                         alt={item.title}
                       />
-                        <CardContent sx={{ flex: '1 0 auto', py: 0 }}>
-                          <Chip
-                            label={item.year}
-                            sx={{ backgroundColor: "#fdd32d", fontWeight: "bold" }}
-                            />
-                          <Typography variant="h6" component="div">
-                            { item.title }
-                          </Typography>
-                        </CardContent>
                     </CardActionArea>
+                    <CardContent sx={{ flex: '1 0 auto', py: 0 }}>
+                      <Chip
+                        label={item.year}
+                        sx={{ backgroundColor: "#fdd32d", fontWeight: "bold" }}
+                        />
+                      <Typography variant="h6" component="div">
+                        { item.title }
+                      </Typography>
+                    </CardContent>
                   </Card>
                 </Grid2>
               )
