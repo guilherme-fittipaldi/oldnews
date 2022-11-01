@@ -78,40 +78,40 @@ const GridArticles = () => {
 					}
 				</Grid2>
 
-        <Grid2
-          container
-          mt={2}
-          spacing={2}
-        >
-          {
-            news.map(item => {
-              return (
-                <Grid2 xs={6}>
-                  <Card sx={{ display: 'flex', alignItems: "start", boxShadow: 0, backgroundColor: "transparent" }}>
-                    <CardActionArea sx={{width: "auto"}}>
-                      <CardMedia
-                        component="img"
-                        height="100"
-                        sx={{ width: 150, borderRadius: "6px" }}
-                        image={item.image}
-                        alt={item.title}
-                      />
-                    </CardActionArea>
-                    <CardContent sx={{ flex: '1 0 auto', py: 0 }}>
-                      <Chip
-                        label={item.year}
-                        sx={{ backgroundColor: "#fdd32d", fontWeight: "bold" }}
-                        />
-                      <Typography variant="h6" component="div">
-                        { item.title }
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid2>
-              )
-            })
-          }
-        </Grid2>
+				<Grid2
+				container
+				mt={2}
+				spacing={2}
+				>
+				{
+					news.map(item => {
+					return (
+						<Grid2 xs={6}>
+						<Card sx={{ display: 'flex', alignItems: "start", boxShadow: 0, backgroundColor: "transparent" }}>
+							<CardActionArea sx={{width: "auto"}}>
+							<CardMedia
+								component="img"
+								height="100"
+								sx={{ width: 150, borderRadius: "6px" }}
+								image={item.image}
+								alt={item.title}
+							/>
+							</CardActionArea>
+							<CardContent sx={{ flex: '1 0 auto', py: 0 }}>
+							<Chip
+								label={item.year}
+								sx={{ backgroundColor: "#fdd32d", fontWeight: "bold" }}
+								/>
+							<Typography variant="h6" component="div">
+								{ item.title }
+							</Typography>
+							</CardContent>
+						</Card>
+						</Grid2>
+					)
+					})
+				}
+				</Grid2>
 			</Grid2>
 		</Grid2>
 	)
