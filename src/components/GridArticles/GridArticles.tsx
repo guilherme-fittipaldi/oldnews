@@ -57,7 +57,7 @@ const GridArticles = () => {
           {/* Latests news */}
           <Grid2
             xs={8}
-            >
+          >
             <Typography variant="h3" component="h1">
               Latests
             </Typography>
@@ -72,7 +72,7 @@ const GridArticles = () => {
                   return (
                     <Grid2 xs={6}>
                       <Card sx={{ boxShadow: 0, backgroundColor: "transparent" }}>
-                        <CardActionArea>
+                        <CardActionArea sx={{ overflow: "hidden" }}>
                           <CardMedia
                             component="img"
                             height="200"
@@ -118,13 +118,24 @@ const GridArticles = () => {
                   return (
                     <Grid2 xs={6}>
                       <Card sx={{ display: 'flex', alignItems: "start", boxShadow: 0, backgroundColor: "transparent" }}>
-                        <CardActionArea sx={{width: "auto"}}>
+                        <CardActionArea sx={{width: "auto", overflow: "hidden"}}>
                           <CardMedia
                             component="img"
                             height="100"
-                            sx={{ width: 150, borderRadius: "6px" }}
                             image={item.image}
                             alt={item.title}
+                            sx={{
+                              width: 125,
+                              borderRadius: "6px",
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              transition:
+                                "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
+                              "&:hover": {
+                                transform: "scale(1.02)",
+                              },
+                              objectFit: "cover",
+                            }}
                           />
                         </CardActionArea>
                         <CardContent sx={{ flex: '1 0 auto', py: 0 }}>
@@ -161,13 +172,24 @@ const GridArticles = () => {
                   return (
                     <Grid2 xs={12}>
                       <Card sx={{ display: 'flex', alignItems: "start", boxShadow: 0, backgroundColor: "transparent" }}>
-                        <CardActionArea sx={{width: "auto"}}>
+                        <CardActionArea sx={{ width: "auto", overflow: "hidden" }}>
                           <CardMedia
                             component="img"
                             height="75"
-                            sx={{ width: 75, borderRadius: "6px" }}
                             image={item.image}
                             alt={item.title}
+                            sx={{
+                              width: 75,
+                              borderRadius: "6px",
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              transition:
+                                "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
+                              "&:hover": {
+                                transform: "scale(1.02)",
+                              },
+                              objectFit: "cover",
+                            }}
                           />
                         </CardActionArea>
                         <CardContent sx={{ flex: '1 0 auto', py: 0 }}>
