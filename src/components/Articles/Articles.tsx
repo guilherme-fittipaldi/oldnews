@@ -1,4 +1,5 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import GridArticles from "./components/GridArticles/GridArticles";
 import ListArticle from "./components/ListArticle/ListArticle";
 import MainArticle from "./components/MainArticle/MainArticle";
 import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
@@ -40,42 +41,50 @@ const Articles = () => {
       justifyContent="center"
       alignItems="center"
       mt={{ lg: 4 }}
-      bgcolor={{ lg: "#fffafa", xs: "#353636" }}
     >
-      <MainArticle
-        year="1978"
-        title="Anwar Sadat and Menachem Begin awarded Nobel Peace Prize"
-        img="https://cdn.britannica.com/90/151790-050-D17F8329/Anwar-Sadat-Pres-Egyptian-Menachem-Begin-Israeli-September-17-1978.jpg?w=725&h=408&c=crop"
-      />
       <Grid
         container
         direction="row"
-        mt={2}
-        mb={{ lg: 4, xs: 2 }}
-        width={{ lg: "84vw", xs: "94vw" }}
-        maxWidth="1200px"
+        justifyContent="center"
+        alignItems="center"
+        bgcolor={{ lg: "#fffafa", xs: "#353636" }}
       >
-        {showText
-          ? verticalArticles.map((article, index) => {
-              return (
-                <VerticalArticle
-                  title={article.title}
-                  year={article.year}
-                  img={article.img}
-                  index={index}
-                />
-              );
-            })
-          : verticalArticles.map((article) => {
-              return (
-                <ListArticle
-                  title={article.title}
-                  year={article.year}
-                  img={article.img}
-                />
-              );
-            })}
+        <MainArticle
+          year="1978"
+          title="Anwar Sadat and Menachem Begin awarded Nobel Peace Prize"
+          img="https://cdn.britannica.com/90/151790-050-D17F8329/Anwar-Sadat-Pres-Egyptian-Menachem-Begin-Israeli-September-17-1978.jpg?w=725&h=408&c=crop"
+        />
+        <Grid
+          container
+          direction="row"
+          mt={2}
+          mb={{ lg: 4, xs: 2 }}
+          width={{ lg: "84vw", xs: "94vw" }}
+          maxWidth="1200px"
+        >
+          {showText
+            ? verticalArticles.map((article, index) => {
+                return (
+                  <VerticalArticle
+                    title={article.title}
+                    year={article.year}
+                    img={article.img}
+                    index={index}
+                  />
+                );
+              })
+            : verticalArticles.map((article) => {
+                return (
+                  <ListArticle
+                    title={article.title}
+                    year={article.year}
+                    img={article.img}
+                  />
+                );
+              })}
+        </Grid>
       </Grid>
+      <GridArticles />
     </Grid>
   );
 };
