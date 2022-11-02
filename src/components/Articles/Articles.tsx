@@ -1,10 +1,11 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import ListArticle from "./components/ListArticle/ListArticle";
 import MainArticle from "./components/MainArticle/MainArticle";
 import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
 
 const Articles = () => {
   const theme = useTheme();
-  const showText = useMediaQuery(theme.breakpoints.up("sm"));
+  const showText = useMediaQuery(theme.breakpoints.up("lg"));
 
   const verticalArticles = [
     {
@@ -38,7 +39,8 @@ const Articles = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      mt={{ sm: 4 }}
+      mt={{ lg: 4 }}
+      bgcolor={{ lg: "#fffafa", xs: "#353636" }}
     >
       <MainArticle
         year="1978"
@@ -48,24 +50,31 @@ const Articles = () => {
       <Grid
         container
         direction="row"
-        justifyContent="center"
-        alignItems="center"
         mt={2}
-        mb={4}
-        width="84vw"
+        mb={{ lg: 4, xs: 2 }}
+        width={{ lg: "84vw", xs: "94vw" }}
         maxWidth="1200px"
       >
-        {showText &&
-          verticalArticles.map((article, index) => {
-            return (
-              <VerticalArticle
-                title={article.title}
-                year={article.year}
-                img={article.img}
-                index={index}
-              />
-            );
-          })}
+        {showText
+          ? verticalArticles.map((article, index) => {
+              return (
+                <VerticalArticle
+                  title={article.title}
+                  year={article.year}
+                  img={article.img}
+                  index={index}
+                />
+              );
+            })
+          : verticalArticles.map((article) => {
+              return (
+                <ListArticle
+                  title={article.title}
+                  year={article.year}
+                  img={article.img}
+                />
+              );
+            })}
       </Grid>
     </Grid>
   );
