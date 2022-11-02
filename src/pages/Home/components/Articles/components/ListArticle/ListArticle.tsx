@@ -57,7 +57,6 @@ const ListArticle = ({ title, year, img }: ListArticleProps) => {
             sx={{
               display: "-webkit-box",
               margin: "0px 16px 0px 0px",
-              // whiteSpace: "nowrap",
               textOverflow: "ellipsis",
               overflow: "hidden",
               "-webkit-line-clamp": "2",

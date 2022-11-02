@@ -1,47 +1,48 @@
-import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  Typography,
-  Chip,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
+import BirthdayArticles from "./components/BirthdayArticles/BirthdayArticles";
+import BigArticles from "./components/BigArticles/BigArticles";
+import SmallArticles from "./components/SmallArticles/SmallArticles";
 
 const GridArticles = () => {
-  const news = [
+  const articles = [
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2020",
+      img: "https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop",
+      title:
+        "Antigua and Barbuda achieved independence from the United Kingdom",
+      year: "1981",
     },
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2001",
+      img: "https://cdn.britannica.com/31/76531-050-371C7836/bomb-Mike-Marshall-Islands-November-1952.jpg?w=725&h=408&c=crop",
+      title: "First thermonuclear bomb tested by the United States",
+      year: "1952",
     },
   ];
 
-  const smallNews = [
+  const smallArticles = [
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2020",
+      img: "https://cdn.britannica.com/37/75437-004-75B8CD4B/detail-William-Shakespeare-portrait-oil-painting-John-1610.jpg?w=400&h=200&c=crop",
+      title:
+        "William Shakespeare's The Tempest was reportedly performed for the first time.",
+      year: "1611",
     },
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2001",
+      img: "https://cdn.britannica.com/77/2577-004-DA7549AE/The-Creation-of-Adam-ceiling-fresco-Michelangelo.jpg?w=400&h=200&c=crop",
+      title:
+        "For the first time, the general public was able to view Michelangelo's fresco on the ceiling of the Sistine Chapel",
+      year: "1512",
     },
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2020",
+      img: "https://cdn.britannica.com/66/96866-004-F622FD38/Flag-European-Union.jpg?w=400&h=200&c=crop",
+      title:
+        "The Maastricht Treaty entered into force, thereby establishing the European Union.",
+      year: "1993",
     },
     {
-      image: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-      title: "Lizard",
-      year: "2001",
+      img: "https://cdn.britannica.com/53/93453-004-2CEB215D/Leonardo-DiCaprio-Kate-Winslet-Titanic-James-Cameron.jpg?w=400&h=200&c=crop",
+      title:
+        "Titanic, a drama about the doomed ocean liner, had its first public screening at the Tokyo International Film Festival",
+      year: "1997",
     },
   ];
 
@@ -59,102 +60,8 @@ const GridArticles = () => {
           <Typography mb={2} variant="h4" component="h4" fontWeight="bold">
             Latests
           </Typography>
-
-          {/* Top news */}
-          <Grid2 container columnSpacing={4}>
-            {news.map((item) => {
-              return (
-                <Grid2 xs={6}>
-                  <Card sx={{ boxShadow: 0, backgroundColor: "transparent" }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={item.image}
-                        alt={item.title}
-                        sx={{
-                          borderRadius: "6px",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          transition:
-                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
-                          "&:hover": {
-                            transform: "scale(1.02)",
-                          },
-                          objectFit: "cover",
-                        }}
-                      />
-                    </CardActionArea>
-                    <CardContent sx={{ px: 0 }}>
-                      <Chip
-                        label={item.year}
-                        sx={{
-                          backgroundColor: "#fdd32d",
-                          fontWeight: "bold",
-                        }}
-                      />
-                      <Typography variant="h6" component="div" sx={{ mt: 1 }}>
-                        {item.title}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid2>
-              );
-            })}
-          </Grid2>
-
-          {/* Smaller news */}
-          <Grid2 container spacing={4} mt={2}>
-            {smallNews.map((item) => {
-              return (
-                <Grid2 xs={6}>
-                  <Card
-                    sx={{
-                      display: "flex",
-                      alignItems: "start",
-                      boxShadow: 0,
-                      backgroundColor: "transparent",
-                    }}
-                  >
-                    <CardActionArea sx={{ width: "auto", overflow:"hidden" }}>
-                      <CardMedia
-                        component="img"
-                        height="100"
-                        image={item.image}
-                        alt={item.title}
-                        sx={{
-                          width: 150,
-                          borderRadius: "6px",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          transition:
-                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
-                          "&:hover": {
-                            transform: "scale(1.02)",
-                          },
-                          objectFit: "cover",
-                        }}
-                      />
-                    </CardActionArea>
-                    <CardContent sx={{ flex: "1 0 auto", py: 0 }}>
-                      <Chip
-                        label={item.year}
-                        size="small"
-                        sx={{
-                          backgroundColor: "#fdd32d",
-                          fontWeight: "bold",
-                          fontSize: "0.7rem",
-                        }}
-                      />
-                      <Typography variant="h6" component="div">
-                        {item.title}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid2>
-              );
-            })}
-          </Grid2>
+          <BigArticles articles={articles} />
+          <SmallArticles articles={smallArticles} />
         </Grid2>
 
         {/* Birthdays */}
@@ -163,48 +70,7 @@ const GridArticles = () => {
             Birthdays
           </Typography>
 
-          <Grid2 container spacing={2.5}>
-            {smallNews.map((item) => {
-              return (
-                <Grid2 xs={12}>
-                  <Card
-                    sx={{
-                      display: "flex",
-                      alignItems: "start",
-                      boxShadow: 0,
-                      backgroundColor: "transparent",
-                    }}
-                  >
-                    <CardActionArea sx={{ width: "auto", overflow: "hidden" }}>
-                      <CardMedia
-                        component="img"
-                        height="75"
-                        image={item.image}
-                        alt={item.title}
-                        sx={{
-                          width: 75,
-                          borderRadius: "6px",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          transition:
-                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
-                          "&:hover": {
-                            transform: "scale(1.02)",
-                          },
-                          objectFit: "cover",
-                        }}
-                      />
-                    </CardActionArea>
-                    <CardContent sx={{ flex: "1 0 auto", py: 0 }}>
-                      <Typography variant="h6" component="div">
-                        {item.title}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid2>
-              );
-            })}
-          </Grid2>
+          <BirthdayArticles articles={smallArticles} />
         </Grid2>
       </Grid2>
     </Grid2>
