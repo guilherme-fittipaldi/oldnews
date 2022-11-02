@@ -116,13 +116,24 @@ const GridArticles = () => {
                       backgroundColor: "transparent",
                     }}
                   >
-                    <CardActionArea sx={{ width: "auto" }}>
+                    <CardActionArea sx={{ width: "auto", overflow:"hidden" }}>
                       <CardMedia
                         component="img"
                         height="100"
-                        sx={{ width: 150, borderRadius: "6px" }}
                         image={item.image}
                         alt={item.title}
+                        sx={{
+                          width: 150,
+                          borderRadius: "6px",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          transition:
+                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
+                          "&:hover": {
+                            transform: "scale(1.02)",
+                          },
+                          objectFit: "cover",
+                        }}
                       />
                     </CardActionArea>
                     <CardContent sx={{ flex: "1 0 auto", py: 0 }}>
@@ -164,13 +175,24 @@ const GridArticles = () => {
                       backgroundColor: "transparent",
                     }}
                   >
-                    <CardActionArea sx={{ width: "auto" }}>
+                    <CardActionArea sx={{ width: "auto", overflow: "hidden" }}>
                       <CardMedia
                         component="img"
                         height="75"
-                        sx={{ width: 75, borderRadius: "6px" }}
                         image={item.image}
                         alt={item.title}
+                        sx={{
+                          width: 75,
+                          borderRadius: "6px",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          transition:
+                            "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
+                          "&:hover": {
+                            transform: "scale(1.02)",
+                          },
+                          objectFit: "cover",
+                        }}
                       />
                     </CardActionArea>
                     <CardContent sx={{ flex: "1 0 auto", py: 0 }}>

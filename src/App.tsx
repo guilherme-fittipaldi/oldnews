@@ -1,6 +1,7 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Articles from "./components/Articles/Articles";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home/Home";
+import News from "./pages/News/News";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 const theme = createTheme({
@@ -19,10 +20,14 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      <Articles />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="news/:id" element={<News />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
-  );
+  )
 }
 
 export default App;
