@@ -32,7 +32,7 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                 backgroundColor: "transparent",
               }}
             >
-              <CardActionArea sx={{ width: "auto", overflow: "hidden" }}>
+              <CardActionArea sx={{ width: "auto" }}>
                 <CardMedia
                   component="img"
                   height="100"
