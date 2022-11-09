@@ -16,16 +16,16 @@ type Article = {
   img: string;
 };
 
-type BigArticlesProps = {
+type BigImageArticlesProps = {
   articles: Article[];
 };
 
-const BigArticles = ({ articles }: BigArticlesProps) => {
+const BigImageArticles = ({ articles }: BigImageArticlesProps) => {
   return (
-    <Grid2 container columnSpacing={4}>
+    <Grid2 container display="flex">
       {articles.map((item) => {
         return (
-          <Grid2 xs={6}>
+          <Grid2 display="flex">
             <Card sx={{ boxShadow: 0, backgroundColor: "transparent" }}>
               <CardActionArea sx={{ overflow: "hidden", borderRadius: "6px" }}>
                 <CardMedia
@@ -49,15 +49,27 @@ const BigArticles = ({ articles }: BigArticlesProps) => {
               <CardContent sx={{ px: 0 }}>
                 <Chip
                   label={item.year}
+                  size="small"
                   sx={{
                     backgroundColor: "#fdd32d",
                     fontWeight: "bold",
+                    fontSize: "0.7rem",
+                    marginBottom: 1,
                   }}
                 />
                 <Typography
                   variant="h6"
                   component="div"
-                  sx={{ mt: 1, fontWeight: "bold" }}
+                  sx={{
+                    margin: " 0px",
+                    // lineHeight: "22px",
+                    color: "rgb(53, 54, 54)",
+                    fontWeight: "bold",
+                    display: "-webkit-box",
+                    overflow: "hidden",
+                    "-webkit-line-clamp": "3",
+                    " -webkit-box-orient": "vertical",
+                  }}
                 >
                   {item.title}
                 </Typography>
@@ -70,4 +82,4 @@ const BigArticles = ({ articles }: BigArticlesProps) => {
   );
 };
 
-export default BigArticles;
+export default BigImageArticles;

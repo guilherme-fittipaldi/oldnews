@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Card,
   CardActionArea,
@@ -20,7 +22,7 @@ type SmallArticlesProps = {
 
 const SmallArticles = ({ articles }: SmallArticlesProps) => {
   return (
-    <Grid2 container spacing={4} mt={2}>
+    <Grid2 container spacing={1} columnSpacing={4}>
       {articles.map((item) => {
         return (
           <Grid2 xs={6}>
@@ -32,7 +34,9 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                 backgroundColor: "transparent",
               }}
             >
-              <CardActionArea sx={{ width: "auto", overflow: "hidden" }}>
+              <CardActionArea
+                sx={{ width: "auto", overflow: "hidden", borderRadius: "6px" }}
+              >
                 <CardMedia
                   component="img"
                   height="100"
@@ -64,12 +68,14 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                 />
                 <Typography
                   component="div"
-                  maxWidth="12vw"
+                  maxWidth={190}
                   mt={1}
                   sx={{
+                    margin: " 0px",
+                    lineHeight: "22px",
+                    color: "rgb(53, 54, 54)",
                     fontWeight: "bold",
                     display: "-webkit-box",
-                    textOverflow: "ellipsis",
                     overflow: "hidden",
                     "-webkit-line-clamp": "3",
                     " -webkit-box-orient": "vertical",
