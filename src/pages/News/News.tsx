@@ -21,13 +21,14 @@ function News() {
           <Grid2
             container
             spacing={4}
-            xs={8}
+            xs={12}
+            md={8}
           >
-            <Grid2>
+            <Grid2 xs={12}>
               <Typography variant="h4" component="h1">Notícia</Typography>
               <Typography variant="subtitle1">Subtítulo da notícia</Typography>
             </Grid2>
-            <Grid2>
+            <Grid2 xs={12}>
               <Card
                 sx={{
                   boxShadow: 0,
@@ -36,8 +37,6 @@ function News() {
               >
                 <CardMedia
                   component="img"
-                  sx={{ width: "800px" }}
-                  height="450"
                   image="https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop"
                   alt="Antigua and Barbuda achieved independence from the United Kingdom"
                 />
@@ -51,10 +50,11 @@ function News() {
           <Grid2
             container
             spacing={1}
-            xs={8}
-            mt={4}
+            xs={12}
+            md={8}
+            my={4}
           >
-            <Grid2>  
+            <Grid2>
               <Chip
                 label="categoria1"
                 size="small"
