@@ -50,6 +50,29 @@ const GridArticles = () => {
     },
   ];
 
+  const birthdays = [
+    {
+      title: "Gordon Ramsay",
+      year: "1966",
+      img: "https://www.onthisday.com/images/people/gordon-ramsay-medium.jpg",
+    },
+    {
+      title: "Vlad the Impaler",
+      year: "1431",
+      img: "https://www.onthisday.com/images/people/vlad-the-impaler.jpg",
+    },
+    {
+      title: "SZA",
+      year: "1990",
+      img: "https://www.onthisday.com/images/people/sza-medium.jpg",
+    },
+    {
+      title: "Nerva",
+      year: "30 AD",
+      img: "https://www.onthisday.com/images/people/nerva.jpg",
+    },
+  ];
+
   return (
     <Grid2
       container
@@ -75,7 +98,7 @@ const GridArticles = () => {
               Birthdays
             </Typography>
 
-            <BirthdayArticles articles={smallArticles} />
+            <BirthdayArticles articles={birthdays} />
           </Grid2>
         </Grid2>
       ) : (

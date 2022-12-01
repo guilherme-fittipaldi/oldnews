@@ -74,6 +74,19 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                 >
                   {item.title}
                 </Typography>
+                <Typography
+                  maxWidth={190}
+                  // variant="p"
+                  component="div"
+                  sx={{
+                    " -webkit-box-orient": "vertical",
+                    overflow: "hidden",
+                    "-webkit-line-clamp": "1",
+                    display: "-webkit-box",
+                  }}
+                >
+                  {item.year}
+                </Typography>
               </CardContent>
             </Card>
           </Grid2>
