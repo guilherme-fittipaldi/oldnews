@@ -1,10 +1,14 @@
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import BirthdayArticles from "./components/BirthdayArticles/BirthdayArticles";
 import BigArticles from "./components/BigArticles/BigArticles";
 import SmallArticles from "./components/SmallArticles/SmallArticles";
+import BigImageArticles from "./components/BigImageArticle/BigImageArticles";
 
 const GridArticles = () => {
+  const theme = useTheme();
+  const showText = useMediaQuery(theme.breakpoints.up("lg"));
+
   const articles = [
     {
       img: "https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop",
@@ -46,33 +50,74 @@ const GridArticles = () => {
     },
   ];
 
+  const birthdays = [
+    {
+      title: "Gordon Ramsay",
+      year: "1966",
+      img: "https://www.onthisday.com/images/people/gordon-ramsay-medium.jpg",
+    },
+    {
+      title: "Vlad the Impaler",
+      year: "1431",
+      img: "https://www.onthisday.com/images/people/vlad-the-impaler.jpg",
+    },
+    {
+      title: "SZA",
+      year: "1990",
+      img: "https://www.onthisday.com/images/people/sza-medium.jpg",
+    },
+    {
+      title: "Nerva",
+      year: "30 AD",
+      img: "https://www.onthisday.com/images/people/nerva.jpg",
+    },
+  ];
+
   return (
     <Grid2
       container
       justifyContent="center"
       alignItems="center"
-      width="84vw"
+      width={{ lg: "84vw", xs: "94vw" }}
       maxWidth="1200px"
+      mb={5}
     >
-      <Grid2 container columnSpacing={6}>
-        {/* Latests news */}
-        <Grid2 xs={8}>
-          <Typography mb={2} variant="h4" component="h4" fontWeight="bold">
-            Latests
-          </Typography>
-          <BigArticles articles={articles} />
-          <SmallArticles articles={smallArticles} />
-        </Grid2>
+      {showText ? (
+        <Grid2 container columnSpacing={6}>
+          {/* Latests news */}
+          <Grid2 xs={8}>
+            <Typography mb={2} variant="h4" component="h4" fontWeight="bold">
+              Latests
+            </Typography>
+            <BigArticles articles={articles} />
+            <SmallArticles articles={smallArticles} />
+          </Grid2>
+          {/* Birthdays */}
+          <Grid2 xs={4}>
+            <Typography mb={2} variant="h4" component="h4" fontWeight="bold">
+              Birthdays
+            </Typography>
 
-        {/* Birthdays */}
-        <Grid2 xs={4}>
-          <Typography mb={2} variant="h4" component="h4" fontWeight="bold">
-            Birthdays
-          </Typography>
-
-          <BirthdayArticles articles={smallArticles} />
+            <BirthdayArticles articles={birthdays} />
+          </Grid2>
         </Grid2>
-      </Grid2>
+      ) : (
+        <Grid2 container>
+          {/* Latests news */}
+          <Grid2>
+            <Typography
+              mb={2}
+              mt={2}
+              variant="h4"
+              component="h4"
+              fontWeight="bold"
+            >
+              Latests
+            </Typography>
+            <BigImageArticles articles={articles.concat(smallArticles)} />
+          </Grid2>
+        </Grid2>
+      )}
     </Grid2>
   );
 };
