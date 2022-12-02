@@ -1,4 +1,4 @@
-export type Articles = {
+export type ArticlesModel = {
   id: string;
   title: string;
   date: string;
@@ -20,7 +20,7 @@ export type ListArticlesParams = {
 };
 
 export type ListArticlesModel = {
-  content: Articles[];
+  content: ArticlesModel[];
   pageable: {
     sort: {
       empty: boolean;

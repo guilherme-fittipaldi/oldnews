@@ -1,9 +1,6 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
-import {
-  Articles,
-  ListArticlesModel,
-} from "../../../../entities/articles/articles";
+import { ListArticlesModel } from "../../../../entities/articles/articles";
 import { getArticles } from "../../../../services/articles/listArticles";
 import GridArticles from "./components/GridArticles/GridArticles";
 import ListArticle from "./components/ListArticle/ListArticle";

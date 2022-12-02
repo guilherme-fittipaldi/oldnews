@@ -4,11 +4,11 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Header = () => {
   return (
-    <header>
+    <header style={{ textAlign: "center" }}>
       <div className="logo">
         <span>OldNews</span>
       </div>
-      <div className="search">
+      {/* <div className="search">
         <TextField
           className="searchInput"
           placeholder="Pesquisar"
@@ -17,7 +17,7 @@ const Header = () => {
             endAdornment: <SearchIcon className="searchIcon" />,
           }}
         />
-      </div>
+      </div> */}
     </header>
   );
 };

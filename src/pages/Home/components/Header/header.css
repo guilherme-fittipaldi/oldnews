@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
 
 header {
-  text-align: left;
-  font-size: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
   font-family: Oswald;
   padding: 1rem;
   background-color: #fdd32d;
@@ -11,7 +11,7 @@ header {
 }
 
 .logo {
-  width: 80%;
+  width: 100%;
 }
 
 .search {
