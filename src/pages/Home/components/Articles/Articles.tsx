@@ -1,4 +1,10 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import { useState } from "react";
+import {
+  Articles,
+  ListArticlesModel,
+} from "../../../../entities/articles/articles";
+import { getArticles } from "../../../../services/articles/listArticles";
 import GridArticles from "./components/GridArticles/GridArticles";
 import ListArticle from "./components/ListArticle/ListArticle";
 import MainArticle from "./components/MainArticle/MainArticle";
@@ -7,6 +13,7 @@ import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
 const Articles = () => {
   const theme = useTheme();
   const showText = useMediaQuery(theme.breakpoints.up("lg"));
+  const [articles, setArticles] = useState<ListArticlesModel>();
 
   const verticalArticles = [
     {
@@ -33,6 +40,15 @@ const Articles = () => {
       img: "https://cdn.britannica.com/03/135103-004-B7510B10/Richard-Wagner.jpg?w=400&h=200&c=crop",
     },
   ];
+
+  getArticles({
+    day: new Date().getDay(),
+    month: new Date().getMonth() + 1,
+    page: 0,
+    orderBy: "popularity",
+  }).then(function (response) {
+    setArticles(response.data as ListArticlesModel);
+  });
 
   return (
     <Grid
