@@ -1,12 +1,11 @@
 export type ArticlesModel = {
   id: string;
   title: string;
-  date: string;
-  era: string;
+  date: DateModel;
   source: string;
   description: string;
   popularityScore: number;
-  articleType: "events" | "birthdays" | "deaths";
+  articleType: "events" | "births" | "deaths";
   createdAt: string;
   updatedAt: string;
   deleted: boolean;
@@ -16,7 +15,15 @@ export type ListArticlesParams = {
   day: number;
   month: number;
   page: number;
+  articleType?: "events" | "births" | "deaths";
   orderBy?: "popularity" | "newer" | "older";
+};
+
+export type DateModel = {
+  year: number;
+  month: number;
+  day: number;
+  era: "CE" | "BCE";
 };
 
 export type ListArticlesModel = {

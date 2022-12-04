@@ -1,7 +1,7 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
-import { useState } from "react";
-import { ListArticlesModel } from "../../../../entities/articles/articles";
-import { getArticles } from "../../../../services/articles/listArticles";
+import { useEffect, useState } from "react";
+import { ArticlesModel } from "../../../../entities/articles/articles";
+import { listArticles } from "../../../../services/articles/listArticles";
 import GridArticles from "./components/GridArticles/GridArticles";
 import ListArticle from "./components/ListArticle/ListArticle";
 import MainArticle from "./components/MainArticle/MainArticle";
@@ -10,7 +10,8 @@ import VerticalArticle from "./components/VerticalArticles/VerticalArticle";
 const Articles = () => {
   const theme = useTheme();
   const showText = useMediaQuery(theme.breakpoints.up("lg"));
-  const [articles, setArticles] = useState<ListArticlesModel>();
+  const [articles, setArticles] = useState<ArticlesModel[]>();
+  const [birthdays, setBirthdays] = useState<ArticlesModel[]>();
 
   const verticalArticles = [
     {
@@ -38,14 +39,32 @@ const Articles = () => {
     },
   ];
 
-  getArticles({
-    day: new Date().getDay(),
-    month: new Date().getMonth() + 1,
-    page: 0,
-    orderBy: "popularity",
-  }).then(function (response) {
-    setArticles(response.data as ListArticlesModel);
-  });
+  const images = [
+    "https://upload.wikimedia.org/wikipedia/commons/b/ba/BNF_-_Latin_9474_-_Jean_Bourdichon_-_Grandes_Heures_d%27Anne_de_Bretagne_-_f._3r_-_Anne_de_Bretagne_entre_trois_saintes_%28d%C3%A9tail%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/d5/King_Charles_I_after_original_by_van_Dyck.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Court-charles-I-sm.jpg/450px-Court-charles-I-sm.jpg",
+    "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg",
+  ];
+
+  useEffect(() => {
+    listArticles({
+      day: new Date().getDate(),
+      month: 1, // new Date().getMonth() - 1,
+      page: 0,
+      orderBy: "popularity",
+    }).then(function (response) {
+      setArticles(response.data.content as ArticlesModel[]);
+    });
+    listArticles({
+      day: new Date().getDate(),
+      month: 1, // new Date().getMonth() - 1,
+      page: 0,
+      articleType: "births",
+      orderBy: "popularity",
+    }).then(function (response) {
+      setBirthdays(response.data.content as ArticlesModel[]);
+    });
+  }, []);
 
   return (
     <Grid
@@ -63,41 +82,53 @@ const Articles = () => {
         bgcolor={{ lg: "#fffafa", xs: "#353636" }}
       >
         <MainArticle
-          year="1978"
-          title="Anwar Sadat and Menachem Begin awarded Nobel Peace Prize"
-          img="https://cdn.britannica.com/90/151790-050-D17F8329/Anwar-Sadat-Pres-Egyptian-Menachem-Begin-Israeli-September-17-1978.jpg?w=725&h=408&c=crop"
+          id={articles ? articles[0].id : ""}
+          year={articles ? articles[0].date.year.toString() : "   "}
+          title={articles ? articles[0].description : ""}
+          img="https://bonniedundee1689.files.wordpress.com/2016/12/battleofreading_zpsnvkc818i.jpg"
         />
         <Grid
           container
           direction="row"
-          mt={2}
-          mb={{ lg: 4, xs: 2 }}
+          mt={{ lg: 2 }}
+          mb={{ lg: 4, xs: 4 }}
           width={{ lg: "84vw", xs: "94vw" }}
           maxWidth="1200px"
         >
-          {showText
-            ? verticalArticles.map((article, index) => {
-                return (
-                  <VerticalArticle
-                    title={article.title}
-                    year={article.year}
-                    img={article.img}
-                    index={index}
-                  />
-                );
-              })
-            : verticalArticles.map((article) => {
-                return (
-                  <ListArticle
-                    title={article.title}
-                    year={article.year}
-                    img={article.img}
-                  />
-                );
-              })}
+          {articles && showText
+            ? articles.map(
+                (article, index) =>
+                  index > 0 &&
+                  index < 5 && (
+                    <VerticalArticle
+                      id={article.id}
+                      title={article.description}
+                      year={article.date.year.toString()}
+                      img={images[index - 1]}
+                      //img={article.title}
+                      index={index - 1}
+                    />
+                  )
+              )
+            : articles &&
+              articles.map(
+                (article, index) =>
+                  index > 0 &&
+                  index < 5 && (
+                    <ListArticle
+                      id={article.id}
+                      title={article.description}
+                      year={article.date.year.toString()}
+                      img={images[index - 1]}
+                      //img={article.title}
+                    />
+                  )
+              )}
         </Grid>
       </Grid>
-      <GridArticles />
+      {articles && birthdays && (
+        <GridArticles articles={articles} birthdays={birthdays} />
+      )}
     </Grid>
   );
 };

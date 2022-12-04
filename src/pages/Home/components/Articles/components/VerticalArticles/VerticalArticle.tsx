@@ -1,13 +1,22 @@
 import { Box, Chip, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type VerticalArticleProps = {
   title: string;
   year: string;
   img: string;
   index: number;
+  id: string;
 };
 
-const VerticalArticle = ({ title, year, img, index }: VerticalArticleProps) => {
+const VerticalArticle = ({
+  title,
+  year,
+  img,
+  index,
+  id,
+}: VerticalArticleProps) => {
+  const navigate = useNavigate();
   return (
     <Grid
       item
@@ -15,6 +24,7 @@ const VerticalArticle = ({ title, year, img, index }: VerticalArticleProps) => {
       position="relative"
       height="55vh"
       display="flex"
+      onClick={() => navigate(`news/${id}`)}
       sx={{
         borderRadius:
           index === 0
@@ -23,6 +33,7 @@ const VerticalArticle = ({ title, year, img, index }: VerticalArticleProps) => {
             ? "0px 6px 6px 0px"
             : "0px 0px 0px 0px",
         overflow: "hidden",
+        cursor: "pointer",
       }}
     >
       <Box

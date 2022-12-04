@@ -1,12 +1,16 @@
 import { Box, Chip, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type MainArticleProps = {
   title: string;
   year: string;
   img: string;
+  id: string;
 };
 
-const MainArticle = ({ title, year, img }: MainArticleProps) => {
+const MainArticle = ({ title, year, img, id }: MainArticleProps) => {
+  const navigate = useNavigate();
+
   return (
     <Box
       position="relative"
@@ -15,7 +19,8 @@ const MainArticle = ({ title, year, img }: MainArticleProps) => {
       height="60vh"
       display="flex"
       borderRadius={{ lg: "6px", xs: "0px" }}
-      sx={{ overflow: "hidden" }}
+      sx={{ overflow: "hidden", cursor: "pointer" }}
+      onClick={() => navigate(`news/${id}`)}
     >
       <Box
         position="relative"

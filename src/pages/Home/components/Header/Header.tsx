@@ -1,23 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import "./header.css";
-import { TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 
-const Header = () => {
+type HeaderProps = {
+  redirect?: string;
+};
+
+const Header = ({ redirect }: HeaderProps) => {
+  const navigate = useNavigate();
   return (
     <header style={{ textAlign: "center" }}>
-      <div className="logo">
-        <span>OldNews</span>
+      <div
+        className="logo"
+        style={{ cursor: redirect ? "pointer" : "default" }}
+        onClick={() => redirect && navigate(redirect)}
+      >
+        <span translate="no">OldNews</span>
       </div>
-      {/* <div className="search">
-        <TextField
-          className="searchInput"
-          placeholder="Pesquisar"
-          InputProps={{
-            disableUnderline: true,
-            endAdornment: <SearchIcon className="searchIcon" />,
-          }}
-        />
-      </div>*/}
     </header>
   );
 };

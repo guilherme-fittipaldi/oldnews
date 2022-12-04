@@ -9,23 +9,24 @@ import {
   Typography,
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
-
-type Article = {
-  title: string;
-  year: string;
-  img: string;
-};
+import { ArticlesModel } from "../../../../../../../../entities/articles/articles";
+import { useNavigate } from "react-router-dom";
 
 type SmallArticlesProps = {
-  articles: Article[];
+  articles: ArticlesModel[];
 };
 
 const SmallArticles = ({ articles }: SmallArticlesProps) => {
+  const navigate = useNavigate();
   return (
     <Grid2 container spacing={1} columnSpacing={4}>
       {articles.map((item) => {
         return (
-          <Grid2 xs={6}>
+          <Grid2
+            xs={6}
+            onClick={() => navigate(`news/${item.id}`)}
+            sx={{ cursor: "pointer" }}
+          >
             <Card
               sx={{
                 display: "flex",
@@ -43,7 +44,7 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                   sx={{
                     width: 150,
                     borderRadius: "6px",
-                    background: `linear-gradient(360deg, rgba(22, 22, 22, 0.898) 30%, rgba(49, 48, 48, 0) 98.09%), url(${item.img}) no-repeat`,
+                    background: `linear-gradient(360deg, rgba(22, 22, 22, 0.898) 30%, rgba(49, 48, 48, 0) 98.09%), url(${"https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"}) no-repeat`,
                     transition:
                       "transform 0.2s ease-in-out 0s, filter 0.2s ease-in-out 0s",
                     backgroundSize: "cover",
@@ -52,13 +53,15 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                     },
                     overflow: "hidden",
                   }}
-                  image={item.img}
-                  alt={item.title}
+                  image={
+                    "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"
+                  } //{item.img}
+                  alt={item?.description}
                 />
               </CardActionArea>
               <CardContent sx={{ flex: "1 0 auto", py: 0 }}>
                 <Chip
-                  label={item.year}
+                  label={item.date.year}
                   size="small"
                   sx={{
                     backgroundColor: "#fdd32d",
@@ -71,7 +74,7 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                   maxWidth={190}
                   mt={1}
                   sx={{
-                    margin: " 0px",
+                    margin: "0px",
                     lineHeight: "22px",
                     color: "rgb(53, 54, 54)",
                     fontWeight: "bold",

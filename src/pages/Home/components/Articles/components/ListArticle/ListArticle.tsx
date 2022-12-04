@@ -1,22 +1,29 @@
 import {
   Card,
   CardActionArea,
-  CardContent,
+  Box,
   CardMedia,
   Chip,
   Typography,
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
+import { useNavigate } from "react-router-dom";
 
 type ListArticleProps = {
   title: string;
   year: string;
   img: string;
+  id: string;
 };
 
-const ListArticle = ({ title, year, img }: ListArticleProps) => {
+const ListArticle = ({ title, year, img, id }: ListArticleProps) => {
+  const navigate = useNavigate();
   return (
-    <Grid2 mt={2}>
+    <Grid2
+      mt={4}
+      sx={{ cursor: "pointer" }}
+      onClick={() => navigate(`news/${id}`)}
+    >
       <Card
         sx={{
           display: "flex",
@@ -35,12 +42,7 @@ const ListArticle = ({ title, year, img }: ListArticleProps) => {
             alt={title}
           />
         </CardActionArea>
-        <CardContent
-          sx={{
-            flex: "1 0 auto",
-            py: 0,
-          }}
-        >
+        <Box pl={2}>
           <Chip
             label={year}
             size="small"
@@ -56,16 +58,16 @@ const ListArticle = ({ title, year, img }: ListArticleProps) => {
             maxWidth={{ sm: "70vw", xs: "48vw" }}
             sx={{
               display: "-webkit-box",
-              margin: "0px 16px 0px 0px",
               textOverflow: "ellipsis",
               overflow: "hidden",
-              "-webkit-line-clamp": "2",
+              fontSize: "1rem",
+              "-webkit-line-clamp": "3",
               " -webkit-box-orient": "vertical",
             }}
           >
             {title}
           </Typography>
-        </CardContent>
+        </Box>
       </Card>
     </Grid2>
   );
