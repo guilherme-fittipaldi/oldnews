@@ -15,7 +15,7 @@ const GridArticles = ({ articles, birthdays }: GridArticlesProps) => {
   const theme = useTheme();
   const showText = useMediaQuery(theme.breakpoints.up("lg"));
 
-  // const articles= [
+  // const articles = [
   //   {
   //     img: "https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop",
   //     title:
