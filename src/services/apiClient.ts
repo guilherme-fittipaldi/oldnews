@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_DEV_BACKEND_BASEURL,
+  baseURL: "https://oldnews-backend.herokuapp.com",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
