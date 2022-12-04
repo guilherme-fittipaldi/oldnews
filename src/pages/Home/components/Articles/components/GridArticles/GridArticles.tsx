@@ -86,7 +86,7 @@ const GridArticles = ({ articles, birthdays }: GridArticlesProps) => {
       alignItems="center"
       width={{ lg: "84vw", xs: "94vw" }}
       maxWidth="1200px"
-      mb={5}
+      mb={{ lg: 5, xs: 1 }}
     >
       {showText ? (
         <Grid2 container columnSpacing={6}>
