@@ -28,34 +28,32 @@ const GridArticles = ({ articles, birthdays }: GridArticlesProps) => {
   //     year: "1952",
   //   },
   // ];
-
-  const smallArticles = [
-    {
-      img: "https://cdn.britannica.com/37/75437-004-75B8CD4B/detail-William-Shakespeare-portrait-oil-painting-John-1610.jpg?w=400&h=200&c=crop",
-      title:
-        "William Shakespeare's The Tempest was reportedly performed for the first time.",
-      year: "1611",
-    },
-    {
-      img: "https://cdn.britannica.com/77/2577-004-DA7549AE/The-Creation-of-Adam-ceiling-fresco-Michelangelo.jpg?w=400&h=200&c=crop",
-      title:
-        "For the first time, the general public was able to view Michelangelo's fresco on the ceiling of the Sistine Chapel",
-      year: "1512",
-    },
-    {
-      img: "https://cdn.britannica.com/66/96866-004-F622FD38/Flag-European-Union.jpg?w=400&h=200&c=crop",
-      title:
-        "The Maastricht Treaty entered into force, thereby establishing the European Union.",
-      year: "1993",
-    },
-    {
-      img: "https://cdn.britannica.com/53/93453-004-2CEB215D/Leonardo-DiCaprio-Kate-Winslet-Titanic-James-Cameron.jpg?w=400&h=200&c=crop",
-      title:
-        "Titanic, a drama about the doomed ocean liner, had its first public screening at the Tokyo International Film Festival",
-      year: "1997",
-    },
-  ];
-
+  // const smallArticles = [
+  //   {
+  //     img: "https://cdn.britannica.com/37/75437-004-75B8CD4B/detail-William-Shakespeare-portrait-oil-painting-John-1610.jpg?w=400&h=200&c=crop",
+  //     title:
+  //       "William Shakespeare's The Tempest was reportedly performed for the first time.",
+  //     year: "1611",
+  //   },
+  //   {
+  //     img: "https://cdn.britannica.com/77/2577-004-DA7549AE/The-Creation-of-Adam-ceiling-fresco-Michelangelo.jpg?w=400&h=200&c=crop",
+  //     title:
+  //       "For the first time, the general public was able to view Michelangelo's fresco on the ceiling of the Sistine Chapel",
+  //     year: "1512",
+  //   },
+  //   {
+  //     img: "https://cdn.britannica.com/66/96866-004-F622FD38/Flag-European-Union.jpg?w=400&h=200&c=crop",
+  //     title:
+  //       "The Maastricht Treaty entered into force, thereby establishing the European Union.",
+  //     year: "1993",
+  //   },
+  //   {
+  //     img: "https://cdn.britannica.com/53/93453-004-2CEB215D/Leonardo-DiCaprio-Kate-Winslet-Titanic-James-Cameron.jpg?w=400&h=200&c=crop",
+  //     title:
+  //       "Titanic, a drama about the doomed ocean liner, had its first public screening at the Tokyo International Film Festival",
+  //     year: "1997",
+  //   },
+  // ];
   // const birthdays = [
   //   {
   //     title: "Gordon Ramsay",
