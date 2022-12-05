@@ -6,6 +6,7 @@ import {
   CardMedia,
   CardContent,
   Typography,
+  Box,
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { ArticlesModel } from "../../../../../../../../entities/articles/articles";
@@ -64,14 +65,9 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                     alt={item.title}
                   />
                 </CardActionArea>
-                <CardContent
-                  sx={{
-                    flex: "1 0 auto",
-                    py: 0,
-                  }}
-                >
+                <Box pl={2}>
                   <Typography
-                    maxWidth={190}
+                    maxWidth={{ sm: "18vw", xs: "70vw" }}
                     variant="h6"
                     component="div"
                     sx={{
@@ -84,7 +80,7 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                     {item.description}
                   </Typography>
                   <Typography
-                    maxWidth={190}
+                    // maxWidth={190}
                     // variant="p"
                     component="div"
                     sx={{
@@ -96,7 +92,7 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                   >
                     {item.date.year}
                   </Typography>
-                </CardContent>
+                </Box>
               </Card>
             </Grid2>
           )
