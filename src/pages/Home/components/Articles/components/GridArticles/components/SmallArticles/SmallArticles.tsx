@@ -72,7 +72,7 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                 <Typography
                   component="div"
                   maxWidth={190}
-                  mt={1}
+                  pt={1}
                   sx={{
                     margin: "0px",
                     lineHeight: "22px",
