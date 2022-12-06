@@ -59,9 +59,7 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                       },
                       overflow: "hidden",
                     }}
-                    image={
-                      "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"
-                    } //{item.img}
+                    image={item.source}
                     alt={item.title}
                   />
                 </CardActionArea>
@@ -77,7 +75,7 @@ const BirthdayArticles = ({ articles }: BirthdayArticlesProps) => {
                       display: "-webkit-box",
                     }}
                   >
-                    {item.description}
+                    {item.title}
                   </Typography>
                   <Typography
                     // maxWidth={190}

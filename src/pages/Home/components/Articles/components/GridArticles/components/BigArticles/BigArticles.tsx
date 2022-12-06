@@ -12,12 +12,6 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import { ArticlesModel } from "../../../../../../../../entities/articles/articles";
 import { useNavigate } from "react-router-dom";
 
-type Article = {
-  title: string;
-  year: string;
-  img: string;
-};
-
 type BigArticlesProps = {
   articles: ArticlesModel[];
 };
@@ -38,10 +32,8 @@ const BigArticles = ({ articles }: BigArticlesProps) => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={
-                    "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"
-                  } //{item.img}
-                  alt={item.description}
+                  image={item.source}
+                  alt={item.title}
                   sx={{
                     borderRadius: "6px",
                     backgroundSize: "cover",

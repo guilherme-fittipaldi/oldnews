@@ -36,13 +36,18 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
               }}
             >
               <CardActionArea
-                sx={{ width: "auto", overflow: "hidden", borderRadius: "6px" }}
+                sx={{
+                  width: "auto",
+                  overflow: "hidden",
+                  borderRadius: "6px",
+                  minWidth: 175,
+                }}
               >
                 <CardMedia
                   component="img"
                   height="100"
                   sx={{
-                    width: 150,
+                    minWidth: 175,
                     borderRadius: "6px",
                     background: `linear-gradient(360deg, rgba(22, 22, 22, 0.898) 30%, rgba(49, 48, 48, 0) 98.09%), url(${"https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"}) no-repeat`,
                     transition:
@@ -53,10 +58,8 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                     },
                     overflow: "hidden",
                   }}
-                  image={
-                    "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"
-                  } //{item.img}
-                  alt={item?.description}
+                  image={item.source}
+                  alt={item?.title}
                 />
               </CardActionArea>
               <CardContent sx={{ flex: "1 0 auto", py: 0 }}>
@@ -71,7 +74,7 @@ const SmallArticles = ({ articles }: SmallArticlesProps) => {
                 />
                 <Typography
                   component="div"
-                  maxWidth={190}
+                  maxWidth={{ lg: "10vw", xs: "12vw" }}
                   pt={1}
                   sx={{
                     margin: "0px",

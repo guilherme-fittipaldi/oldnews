@@ -39,10 +39,8 @@ const BigImageArticles = ({ articles }: BigImageArticlesProps) => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={
-                    "https://i.pinimg.com/564x/09/c5/63/09c5631c5bed3da7b6ff7e28d4652051.jpg"
-                  } //{item.img}
-                  alt={item.description}
+                  image={item.source}
+                  alt={item.title}
                   sx={{
                     borderRadius: "6px",
                     backgroundSize: "cover",

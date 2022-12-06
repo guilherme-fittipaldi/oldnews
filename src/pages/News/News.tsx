@@ -33,10 +33,10 @@ function News() {
                   {article.title}
                 </Typography>
                 <Typography variant="subtitle1">
-                  {`${article.date.day < 10 && "0"}${article.date.day}/${
-                    article.date.month < 10 && "0"
+                  {`${article.date.day < 10 ? "0" : ""}${article.date.day}/${
+                    article.date.month < 10 ? "0" : ""
                   }${article.date.month}/${article.date.year} ${
-                    article.date.era
+                    article.date.era === "CE" ? "" : "BCE"
                   }`}
                 </Typography>
               </Grid2>
@@ -49,17 +49,14 @@ function News() {
                 >
                   <CardMedia
                     component="img"
-                    image="https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop"
+                    image={article.source} //"https://cdn.britannica.com/04/5104-004-51F5F120/Flag-Antigua-and-Barbuda.jpg?w=400&h=200&c=crop"
                     alt="Antigua and Barbuda achieved independence from the United Kingdom"
                   />
                 </Card>
               </Grid2>
               <Grid2>
-                <Typography variant="body1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quo exercitationem vel impedit sunt voluptate dolore
-                  ipsa deserunt aspernatur ratione repellat, fugiat nulla omnis
-                  rem? Est repudiandae eaque fuga sed.
+                <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
+                  {article.description}
                 </Typography>
               </Grid2>
             </Grid2>
