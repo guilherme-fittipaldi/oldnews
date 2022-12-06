@@ -1,11 +1,16 @@
 import axios from "axios";
+import https from "https";
 
 const axiosClient = axios.create({
-  baseURL: "http://179.99.167.212:8081", //"https://oldnews-backend.herokuapp.com",
+  baseURL: "https://179.99.167.212:8081", //"https://oldnews-backend.herokuapp.com",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false,
+    requestCert: false,
+  }),
 });
 
 export default axiosClient;
