@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://179.99.167.212:8081", //"https://oldnews-backend.herokuapp.com",
+  baseURL: "https://oldnews-backend.herokuapp.com", // "https://179.99.167.212:8081", //
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
